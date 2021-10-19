@@ -23,8 +23,8 @@ async function getusers() {
             <img  class="user-avatar" src="${user.avatar}">
             <div>
                 <p class="user-name"> ${user.name}</p>
-                <button class="btn btn-primary" onClick="toggleUser(${user.id})">EDIT</button>
-                <button class="btn btn-warning" onClick="deleteUser(${user.id})">DELETE</button>
+                <button class="btn btn-primary" onClick="toggleUser(${user.id})"><i class="glyphicon glyphicon-user"></i>EDIT</button>
+                <button class="btn btn-warning" onClick="deleteUser(${user.id})"><i class="fa fa-trash"></i>DELETE</button>
                 <div class="edit-user-form edit-${user.id}">
                     <input value="${user.name}" class="edit-${user.id}-user-name" placeholder="Enter Your Name">
                     <input value="${user.avatar}" class="edit-${user.id}-user-avatar" placeholder="Enter Your Pic URL">
@@ -69,15 +69,23 @@ function toggleUser(userid){
 
 async function saveUser(userid){
 
-    const data = await fetch("https://6166c4d713aa1d00170a66f5.mockapi.io/users/" + userid,
-    {method: "DELETE"}
-    );
+    // const data = await fetch("https://6166c4d713aa1d00170a66f5.mockapi.io/users/" + userid,
+    // {method: "DELETE"}
+    // );
+    // const username = document.querySelector(`.edit-${userid}-user-name`).value;
+    // const useravatar = document.querySelector(`.edit-${userid}-user-avatar`).value;
+    // const data2 = await fetch("https://6166c4d713aa1d00170a66f5.mockapi.io/users/",{
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json"},
+    //     body: JSON.stringify({name: username, avatar: useravatar, id: userid})
+    // });
+
     const username = document.querySelector(`.edit-${userid}-user-name`).value;
     const useravatar = document.querySelector(`.edit-${userid}-user-avatar`).value;
-    const data2 = await fetch("https://6166c4d713aa1d00170a66f5.mockapi.io/users/",{
-        method: "POST",
+    const data = await fetch("https://6166c4d713aa1d00170a66f5.mockapi.io/users/" + userid,{
+        method: "PUT",
         headers: { "Content-Type": "application/json"},
-        body: JSON.stringify({name: username, avatar: useravatar, id: userid})
+        body: JSON.stringify({name: username, avatar: useravatar})
     });
 
     getusers();
