@@ -1,0 +1,44 @@
+.user-container{
+    background-color: white;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.5s ease;
+}
+
+body{
+    background-image: linear-gradient(to right top, #ff0000, #f10042, #cb006b, #8d008b, #200e99);
+    min-height: 100vh;
+    font-family: 'Pacifico', cursive;
+}
+
+.user-avatar{
+    border-radius: 50%;
+    width:8rem;
+    height:8rem;
+    object-fit:cover;
+}
+
+.user-name{
+    font-size:1.4rem;
+}
+
+.user-container:hover{
+    transform: scale(1.1);
+    box-shadow: 15px 15px 38px -11px rgba(0,0,0,0.5);
+
+}
+
+.user-container:hover .user-name{
+    color:crimson;
+}
+
+.user-form{
+    margin:2rem;
+}
+
+.edit-user-form{
+    display:none;
+}
